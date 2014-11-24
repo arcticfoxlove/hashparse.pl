@@ -3,7 +3,7 @@ hashparse.pl
 
 parse blast output to get only qid sid and score
 
-
+============
 #!/usr/bin/perl
 #hashparse.pl parse blast output with hashes- key1 is query, key2 is search, value is score 
 #priyanka kulkarni
