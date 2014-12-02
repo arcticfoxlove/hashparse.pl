@@ -16,6 +16,7 @@ my $query = "";
 my %data;
 my $count =0;
 my $temp= "";
+my @matrix;  
 
 while (<$in>) {
 	next until $_ =~ m/chr/;
@@ -27,7 +28,7 @@ while (<$in>) {
 		if ($list[1] =~ m/[a-z]/){    #if list[1] has alphabet
 			$query = $list[1];
 		}
-		elsif ($list[1] >= 300){		#if list[1] is a number (score) greater than 50
+		elsif ($list[1] >= 250){		#if list[1] is a number (score) greater than 50
 				$data{$query}{$list[0]} = $list[1];		#@hash{key1}{key2} = value;		
 		}
 	}
@@ -67,11 +68,14 @@ foreach my $qid (keys %data){
 			if ( defined $data{$qid}{$array_qid[$i]} ) {
 				my $new = (1/ $data{$qid}{$array_qid[$i]}); 
 				printf $out2("%.5f\t" , $new);
+				#push (@array_qid, $new);
 			}
 			else{
 				print $out2("1.00\t");
+				#push (@array_qid, "1.00\t");
 			}
 		}
+		
 		print $out2("\n");
 	}
 
